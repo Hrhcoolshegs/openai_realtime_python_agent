@@ -1,0 +1,42 @@
+# Python Dependencies for Twilio OpenAI Realtime Demo
+# 
+# FastAPI and ASGI server (replaces Express.js + http)
+fastapi
+uvicorn[standard]
+
+# WebSocket support (replaces ws library)
+websockets==12.0
+
+# Environment variables (replaces dotenv)
+python-dotenv
+
+# HTTP requests (replaces node fetch)
+httpx
+aiohttp
+
+# CORS support (replaces cors middleware)
+fastapi-cors
+
+# JSON handling and validation (replaces manual JSON parsing)
+pydantic
+
+# Twilio SDK (for potential future integrations)
+twilio
+
+# Logging and utilities
+structlog
+
+# Development dependencies
+pytest
+pytest-asyncio
+black
+mypy
+
+#RAG dependencies
+langchain
+langchain-openai
+langchain-pinecone
+pinecone-client
+
+# OpenAI API client
+openai
