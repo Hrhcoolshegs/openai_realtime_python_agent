@@ -27,6 +27,7 @@ from dotenv import load_dotenv
 from session_manager import handle_call_connection, handle_frontend_connection
 from function_handlers import get_function_schemas
 from models import ToolListResponse, PublicUrlResponse, ErrorResponse
+from api_routes import router as api_router
 
 
 # Load environment variables
@@ -68,6 +69,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include API routes
+app.include_router(api_router)
 
 # Load TwiML template (converted from fs.readFileSync)
 TWIML_PATH = Path(__file__).parent / "twiml.xml"

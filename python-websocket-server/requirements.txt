@@ -40,3 +40,9 @@ pinecone-client
 
 # OpenAI API client
 openai
+
+# Enhanced settings management
+pydantic-settings
+
+# Date and time handling
+python-dateutil
