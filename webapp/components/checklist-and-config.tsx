@@ -25,11 +25,15 @@ export default function ChecklistAndConfig({
   setReady,
   selectedPhoneNumber,
   setSelectedPhoneNumber,
+  onTwimlUrlReady,
+  onTwimlUrlReady,
 }: {
   ready: boolean;
   setReady: (val: boolean) => void;
   selectedPhoneNumber: string;
   setSelectedPhoneNumber: (val: string) => void;
+  onTwimlUrlReady?: (url: string) => void;
+  onTwimlUrlReady?: (url: string) => void;
 }) {
   const [hasCredentials, setHasCredentials] = useState(false);
   const [phoneNumbers, setPhoneNumbers] = useState<PhoneNumber[]>([]);
@@ -47,6 +51,20 @@ export default function ChecklistAndConfig({
   const appendedTwimlUrl = publicUrl ? `${publicUrl}/twiml` : "";
   const isWebhookMismatch =
     appendedTwimlUrl && currentVoiceUrl && appendedTwimlUrl !== currentVoiceUrl;
+
+  // Notify parent when TwiML URL is ready
+  useEffect(() => {
+    if (appendedTwimlUrl && onTwimlUrlReady) {
+      onTwimlUrlReady(appendedTwimlUrl);
+    }
+  }, [appendedTwimlUrl, onTwimlUrlReady]);
+
+  // Notify parent when TwiML URL is ready
+  useEffect(() => {
+    if (appendedTwimlUrl && onTwimlUrlReady) {
+      onTwimlUrlReady(appendedTwimlUrl);
+    }
+  }, [appendedTwimlUrl, onTwimlUrlReady]);
 
   useEffect(() => {
     let polling = true;
